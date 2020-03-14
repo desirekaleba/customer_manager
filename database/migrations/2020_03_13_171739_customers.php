@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class Customers extends Migration
@@ -14,6 +13,15 @@ class Customers extends Migration
     public function up()
     {
         //
+        Schema::create('customers', function (Blueprint $table) {
+
+            $table->increments('id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('phone');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,5 +32,6 @@ class Customers extends Migration
     public function down()
     {
         //
+        Schema::drop('customers');
     }
 }
